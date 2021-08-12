@@ -16,22 +16,21 @@ public class AnagramArrays {
 
   public static int f(char[] a, char[] b){
     // special cases
-    int length = a.length;
-    if(length != b.length)
+    int lengthOfa = a.length;
+    int lengthOfb = b.length;
+    if(lengthOfa != lengthOfb)
       return 0;
-    for(int i=0; i<a.length; i++){
-      char current = a[i];
+    for(int i=0; i<lengthOfa; i++){
       int acount = 0;
       int bcount = 0;
-      for(int j=0;j<length;j++)
-        if(a[j]==current)
-          acount++;
-      for(int j=0; j<length; j++)
-        if(b[j]==current)
-          bcount++;
+      
+      for(int j=0;j<lengthOfa;j++)
+        if(a[i]==b[j]) acount++;
+      
+      for(int j=0; j<lengthOfb; j++)
+        if(b[i]==a[j]) bcount++;
 
-      if(acount!=bcount)
-        return 0;
+      if(acount!=bcount) return 0;
 
     }
     return 1;
